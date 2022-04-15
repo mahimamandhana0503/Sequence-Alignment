@@ -13,5 +13,15 @@ public class Algo {
         
         int deltaArray[][] = new int[][] { { 0, 110, 48, 94 }, { 110, 0, 118, 48 }, { 48, 118, 0, 110 },
                 { 94, 48, 110, 0 } };
+
+        int gapPenalty = 30;
+
+
+        Alignment al = new Alignment(deltaArray, deltaTable, gapPenalty);
+        al.setString1("ACCGGTCG");
+        al.setString2("CCAGGTGGC");
+
+        System.out.println(al.getValue());
+        System.out.println(al.getSolutionStrings()[0]);
     }
 }
