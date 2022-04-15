@@ -1,27 +1,39 @@
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Algo {
 
-    public static void main(String[] args) {
-
-        HashMap<Character, Integer> deltaTable = new HashMap<>();
-        
-        deltaTable.put('A',0);
-        deltaTable.put('C',1);
-        deltaTable.put('G',2);
-        deltaTable.put('T',3);
-        
-        int deltaArray[][] = new int[][] { { 0, 110, 48, 94 }, { 110, 0, 118, 48 }, { 48, 118, 0, 110 },
+    //initializations
+    //creating hashMap with delta and alpha values
+    static int deltaArray[][] = new int[][] { { 0, 110, 48, 94 }, { 110, 0, 118, 48 }, { 48, 118, 0, 110 },
                 { 94, 48, 110, 0 } };
+    static HashMap<Character, Integer> deltaTable = new HashMap<>();
+    static String filePath = "input.txt";
 
-        int gapPenalty = 30;
+    public static void main(String[] args) throws IOException {
 
+        Input input = new Input().readInput(filePath);
 
-        Alignment al = new Alignment(deltaArray, deltaTable, gapPenalty);
-        al.setString1("ACCGGTCG");
-        al.setString2("CCAGGTGGC");
+        //creating hashMap to denote A,C,G,T with values
+        deltaTable.put('A', 0);
+        deltaTable.put('C', 1);
+        deltaTable.put('G', 2);
+        deltaTable.put('T', 3);
 
-        System.out.println(al.getValue());
-        System.out.println(al.getSolutionStrings()[0]);
+        //input string generator
+        String inputString1 = Algo.generateInput(input.getSequence1(), input.getBase1());
+        String inputString2 = Algo.generateInput(input.getSequence2(), input.getBase2());
+
+    }
+
+    static String generateInput(ArrayList<Integer> seq, String base) {
+        for (int i = 0; i < seq.size(); i++) {
+            int index = seq.get(i);
+            String str1 = base.substring(0, index + 1);
+            String str2 = base.substring(index + 1, base.length());
+            base = str1 + base + str2;
+        }
+        return base;
     }
 }
