@@ -8,7 +8,7 @@ public class Algo {
     //creating hashMap with delta and alpha values
     static int deltaArray[][] = new int[][] { { 0, 110, 48, 94 }, { 110, 0, 118, 48 }, { 48, 118, 0, 110 },
                 { 94, 48, 110, 0 } };
-    static HashMap<String, Integer> deltaTable = new HashMap<>();
+    static HashMap<Character, Integer> deltaTable = new HashMap<>();
     static String filePath = "input.txt";
 
     public static void main(String[] args) throws IOException {
@@ -16,10 +16,10 @@ public class Algo {
         Input input = new Input().readInput(filePath);
 
         //creating hashMap to denote A,C,G,T with values
-        deltaTable.put("A", 0);
-        deltaTable.put("C", 1);
-        deltaTable.put("G", 2);
-        deltaTable.put("T", 3);
+        deltaTable.put('A', 0);
+        deltaTable.put('C', 1);
+        deltaTable.put('G', 2);
+        deltaTable.put('T', 3);
 
         //input string generator
         String inputString1 = Algo.generateInput(input.getSequence1(), input.getBase1());
