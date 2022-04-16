@@ -25,6 +25,16 @@ public class Algo {
         String inputString1 = Algo.generateInput(input.getSequence1(), input.getBase1());
         String inputString2 = Algo.generateInput(input.getSequence2(), input.getBase2());
 
+        Alignment al = new Alignment(deltaArray, deltaTable, 30);
+        al.setString1(inputString1);
+        al.setString2(inputString2);
+        System.out.println(al.getValue()); 
+        String[] solution = al.getSolutionStrings();
+        System.out.println(solution[0]);
+        System.out.println(solution[1]);
+        // System.out.println(solution[1]);
+
+
     }
 
     static String generateInput(ArrayList<Integer> seq, String base) {

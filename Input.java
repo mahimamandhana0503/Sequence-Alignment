@@ -53,6 +53,7 @@ public class Input {
         this.sequence2 = sequence2;
     }
 
+    //reads input from file and generates an inputString 
     Input readInput(String fileName) throws IOException {
         String s;
         sequence1 = new ArrayList<>();
