@@ -60,8 +60,6 @@ public class Alignment {
         String alignments[] = new String[2];
         int i = a.length();
         int j = b.length();
-        System.out.println(i);
-        System.out.println(j);
 
         StringBuilder sba = new StringBuilder();
         StringBuilder sbb = new StringBuilder();
