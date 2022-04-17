@@ -62,7 +62,7 @@ public class Input {
 
         base1 = br.readLine();
         while ((s = br.readLine()) != null) {
-            if (s.length() != 4) {
+            if (s.matches("[0-9]+")) {
                 sequence1.add(Integer.parseInt(s));
             } else {
                 base2 = s;
@@ -71,7 +71,7 @@ public class Input {
         }
 
         while ((s = br.readLine()) != null) {
-            if (s.length() != 4) {
+            if (s.matches("[0-9]+")) {
                 sequence2.add(Integer.parseInt(s));
             } else {
                 break;
